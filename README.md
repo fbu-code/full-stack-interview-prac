@@ -1,64 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Full-stack Interview Practical
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Instructions
 
-## About Laravel
+We've set up this new Laravel project to act as the back-end. A "products" table *migration* and Product *model* have been added already.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Please refer to [https://laravel.com/docs/9.x/installation](https://laravel.com/docs/9.x/installation) for more details on setting up a Laravel project. If you're stuck, feel free to also let us know, and we'll help you out!
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Please clone this repository, and perform the tasks below.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Notes
 
-## Learning Laravel
+- You can perform the tasks in any order.
+- Use VueJS version 2 or 3, and use NPM to install packages.
+- Please make the layout look respectable (you can use CDNs to bring in 3rd party CSS frameworks if you like - Tailwind is a bonus).
+- Feel free to add any other niceties for the *user experience*.
+- ***Please commit your changes and send us a .zip copy (including the .git directory).***
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Front-end
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Create a basic form for adding a new product. Include an input field &amp; submit button. A product needs a name and a field for tags.
+- In the tags field, the user can enter tag-names separated by commas. The new product will be linked to these tags.
+- When submitted, save the new product to the database via an API call.
+- List all products below the form, including their tags, via an API call.
+- Have a search field that filters the listed entries.
+- New products should appear below the input form after submitting.
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+## Back-end
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Create a new Tag model, and add the relevant relationships to and from the Product (many-to-many).
+- Create migrations for Tags and a pivot table to link them to the Products.
+- Add Web routing:
+    - To load the home page initially.
+- Add API routing:
+    - To retrieve a list of products.
+    - To save a new product.
+    - To delete a product.
+- When saving a new product:
+    - Please add validation to make sure the product's name is not empty, and is unique.
+    - Take the tags string and split it by commas. Create a tag for each save it:
+        - But only if it's unique.
+        - Link the product to each one (whether the tags were new or existed from before).
